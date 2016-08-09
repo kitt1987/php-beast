@@ -55,7 +55,7 @@ typedef struct yy_buffer_state *YY_BUFFER_STATE;
 #include "beast_module.h"
 
 
-#define BEAST_VERSION       "2.2"
+#define BEAST_VERSION       "2.3 (PHP7 support)"
 #define DEFAULT_CACHE_SIZE  10485760   /* 10MB */
 #define HEADER_MAX_SIZE     256
 #define INT_SIZE            (sizeof(int))
