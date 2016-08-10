@@ -28,18 +28,15 @@
 #endif
 #define max(a, b) ((a) > (b) ? (a) : (b))
 
-
 typedef struct beast_header_s {
     int segsize;    /* size of entire segment */
     int avail;      /* bytes available memorys */
 } beast_header_t;
 
-
 typedef struct beast_block_s {
     int size;       /* size of this block */
     int next;       /* offset in segment of next free block */
 } beast_block_t;
-
 
 static int beast_mm_initialized = 0;
 static void *beast_mm_block = NULL;

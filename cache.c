@@ -26,9 +26,7 @@
 #include "cache.h"
 #include "beast_log.h"
 
-
 #define BUCKETS_DEFAULT_SIZE 1021
-
 
 static int beast_cache_initialization = 0;
 static cache_item_t **beast_cache_buckets = NULL;
