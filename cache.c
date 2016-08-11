@@ -52,7 +52,8 @@ void beast_cache_unlock()
 }
 
 
-static inline int beast_cache_hash(cache_key_t *key)
+static inline unsigned int
+beast_cache_hash(cache_key_t *key)
 {
     return key->device * 3 + key->inode * 7;
 }
@@ -115,8 +116,8 @@ int beast_cache_init(int size)
 
 cache_item_t *beast_cache_find(cache_key_t *key)
 {
-    int hashval = beast_cache_hash(key);
-    int index = hashval % BUCKETS_DEFAULT_SIZE;
+    unsigned int hashval = beast_cache_hash(key);
+    unsigned int index = hashval % BUCKETS_DEFAULT_SIZE;
     cache_item_t *item, *temp;
 
     beast_cache_lock();
@@ -195,8 +196,8 @@ cache_item_t *beast_cache_create(cache_key_t *key)
  */
 cache_item_t *beast_cache_push(cache_item_t *item)
 {
-    int hashval = beast_cache_hash(&item->key);
-    int index = hashval % BUCKETS_DEFAULT_SIZE;
+    unsigned int hashval = beast_cache_hash(&item->key);
+    unsigned int index = hashval % BUCKETS_DEFAULT_SIZE;
     cache_item_t **this, *self;
 
     beast_cache_lock();
